@@ -1,0 +1,23 @@
+---
+title: "Suicide_visualization"
+author: "Apoorva Srinivasan"
+date: "4/7/2019"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(viridis)
+library(plotly)
+```
+
+```{r}
+suicide_country = read_csv("suicide-rates-by-country.csv") 
+```
+
+```{r}
+suicide_country %>%
+  plot_ly( y = ~`suicide rate (age-adjusted suicides per 100,000 people)`, x = ~ Year, type = 'scatter', mode = 'lines',
+           color = ~Code)
+```
+
